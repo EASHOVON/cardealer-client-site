@@ -82,8 +82,8 @@ export default function Navigation() {
               <Link className={navItem} to="/explore">
                 <Button color="inherit">Explore</Button>
               </Link>
-              <Link className={navItem} to="/home">
-                <Button color="inherit">Service</Button>
+              <Link className={navItem} to="/login">
+                <Button color="inherit">Login</Button>
               </Link>
             </Box>
           </Toolbar>
