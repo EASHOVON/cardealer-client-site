@@ -1,4 +1,5 @@
 import React from 'react';
+import Banner from '../Banner/Banner';
 import Navigation from '../Shared/Navigation/Navigation';
 
 const Home = () =>
@@ -6,7 +7,7 @@ const Home = () =>
     return (
         <div>
             <Navigation></Navigation>
-            <h2>HomePage</h2>
+            <Banner></Banner>
         </div>
     );
 };
