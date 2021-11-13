@@ -1,16 +1,20 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
+import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
 import Explore from "./Pages/Explore/Explore";
 import Footer from "./Pages/Home/Footer/Footer";
 import Home from "./Pages/Home/Home/Home";
 import Login from "./Pages/Login/Login/Login";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./Pages/Login/Register/Register";
 import Purchase from "./Pages/Purchase/Purchase";
 import Navigation from "./Pages/Shared/Navigation/Navigation";
 
 function App() {
   return (
-    <>
+    <AuthProvider>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -24,9 +28,14 @@ function App() {
             <Explore />
             <Footer />
           </Route>
-          <Route path="/purchase/:productId">
+          <PrivateRoute path="/dashboard">
+            <Dashboard />
+          </PrivateRoute>
+          <PrivateRoute path="/purchase/:productId">
+            <Navigation />
             <Purchase />
-          </Route>
+            <Footer />
+          </PrivateRoute>
           <Route path="/login">
             <Login />
           </Route>
@@ -35,7 +44,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 

@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import { useTheme } from "@mui/material";
 
@@ -15,8 +15,10 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
+import useAuth from "../../../hooks/useAuth";
 
 export default function Navigation() {
+  const { user, logOut } = useAuth();
   const theme = useTheme();
   const useStyle = makeStyles({
     navItem: {
@@ -76,15 +78,38 @@ export default function Navigation() {
               />
             </Typography>
             <Box className={navItemContainer}>
-              <Link className={navItem} to="/">
+              <NavLink style={{ color: "white" }} className={navItem} to="/">
                 <Button color="inherit">Home</Button>
-              </Link>
-              <Link className={navItem} to="/explore">
+              </NavLink>
+              <NavLink
+                style={{ color: "white" }}
+                className={navItem}
+                to="/explore">
                 <Button color="inherit">Explore</Button>
-              </Link>
-              <Link className={navItem} to="/login">
-                <Button color="inherit">Login</Button>
-              </Link>
+              </NavLink>
+              {user.email && (
+                <NavLink
+                  style={{ color: "white" }}
+                  className={navItem}
+                  to="/dashboard">
+                  <Button color="inherit">DashBoard</Button>
+                </NavLink>
+              )}
+              {user?.email ? (
+                <Button
+                  style={{ color: "white" }}
+                  onClick={logOut}
+                  color="inherit">
+                  Logout
+                </Button>
+              ) : (
+                <NavLink
+                  style={{ color: "white" }}
+                  className={navItem}
+                  to="/login">
+                  <Button color="inherit">Login</Button>
+                </NavLink>
+              )}
             </Box>
           </Toolbar>
         </AppBar>
@@ -96,25 +121,25 @@ export default function Navigation() {
               <List>
                 <ListItem button>
                   <ListItemText>
-                    <Link className={mobileNavItem} to="/">
+                    <NavLink className={mobileNavItem} to="/">
                       Home
-                    </Link>
+                    </NavLink>
                   </ListItemText>
                 </ListItem>
                 <Divider />
                 <ListItem button>
                   <ListItemText>
-                    <Link className={mobileNavItem} to="/about">
+                    <NavLink className={mobileNavItem} to="/about">
                       About
-                    </Link>
+                    </NavLink>
                   </ListItemText>
                 </ListItem>
                 <Divider />
                 <ListItem button>
                   <ListItemText>
-                    <Link className={mobileNavItem} to="/service">
+                    <NavLink className={mobileNavItem} to="/service">
                       Service
-                    </Link>
+                    </NavLink>
                   </ListItemText>
                 </ListItem>
                 <Divider />
