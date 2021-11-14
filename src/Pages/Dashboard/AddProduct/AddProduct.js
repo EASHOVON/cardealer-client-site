@@ -32,6 +32,7 @@ const AddProduct = () => {
       .then((data) => {
         if (data.insertedId) {
           setSuccess(true);
+          e.target.reset();
         }
       });
     e.preventDefault();
@@ -65,7 +66,7 @@ const AddProduct = () => {
               required
               name="name"
               onBlur={handleOnBlur}
-              sx={{ width: 1 }}
+              sx={{ width: 1, m: 1 }}
             />
             <TextField
               id="outlined-basic"
@@ -74,7 +75,7 @@ const AddProduct = () => {
               required
               name="desc"
               onBlur={handleOnBlur}
-              sx={{ width: 1 }}
+              sx={{ width: 1, m: 1 }}
             />
             <TextField
               id="outlined-basic"
@@ -83,7 +84,7 @@ const AddProduct = () => {
               required
               name="img"
               onBlur={handleOnBlur}
-              sx={{ width: 1 }}
+              sx={{ width: 1, m: 1 }}
             />
             <TextField
               id="outlined-basic"
@@ -92,7 +93,7 @@ const AddProduct = () => {
               required
               name="price"
               onBlur={handleOnBlur}
-              sx={{ width: 1 }}
+              sx={{ width: 1, m: 1 }}
             />
             <Box sx={{ textAlign: "center", mt: 1 }}>
               <Button type="submit" variant="contained">

@@ -6,15 +6,10 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import { useTheme } from "@mui/material";
-
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import useAuth from "../../../hooks/useAuth";
 
 export default function Navigation() {
@@ -47,8 +42,7 @@ export default function Navigation() {
       color: "#000",
     },
   });
-  const { navItem, navIcon, navItemContainer, navLogo, mobileNavItem } =
-    useStyle();
+  const { navItem, navIcon, navItemContainer, navLogo } = useStyle();
   const [state, setState] = React.useState(false);
 
   return (
@@ -72,10 +66,12 @@ export default function Navigation() {
               variant="h6"
               component="div"
               sx={{ flexGrow: 1 }}>
-              <img
-                src="https://q4p3y7t4.rocketcdn.me/elementor/wp-content/uploads/sites/3/2021/08/logo.png"
-                alt=""
-              />
+              <Link to="/">
+                <img
+                  src="https://q4p3y7t4.rocketcdn.me/elementor/wp-content/uploads/sites/3/2021/08/logo.png"
+                  alt=""
+                />
+              </Link>
             </Typography>
             <Box className={navItemContainer}>
               <NavLink style={{ color: "white" }} className={navItem} to="/">
@@ -118,32 +114,80 @@ export default function Navigation() {
         <React.Fragment>
           <Drawer open={state} onClose={() => setState(false)}>
             <Box sx={{ width: 250 }} role="presentation">
-              <List>
-                <ListItem button>
-                  <ListItemText>
-                    <NavLink className={mobileNavItem} to="/">
-                      Home
-                    </NavLink>
-                  </ListItemText>
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                  <ListItemText>
-                    <NavLink className={mobileNavItem} to="/about">
-                      About
-                    </NavLink>
-                  </ListItemText>
-                </ListItem>
-                <Divider />
-                <ListItem button>
-                  <ListItemText>
-                    <NavLink className={mobileNavItem} to="/service">
-                      Service
-                    </NavLink>
-                  </ListItemText>
-                </ListItem>
-                <Divider />
-              </List>
+              <Link
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  textDecoration: "none",
+                }}
+                to="/">
+                <Button
+                  sx={{ py: 1, width: 1 }}
+                  variant="contained"
+                  color="inherit">
+                  Home
+                </Button>
+              </Link>
+              <Link
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  textDecoration: "none",
+                }}
+                to="/explore">
+                <Button
+                  sx={{ py: 1, width: 1 }}
+                  variant="contained"
+                  color="inherit">
+                  Explore
+                </Button>
+              </Link>
+              {user.email && (
+                <Link
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    textDecoration: "none",
+                  }}
+                  to="/dashboard">
+                  <Button
+                    sx={{ py: 1, width: 1 }}
+                    variant="contained"
+                    color="inherit">
+                    DASHBOARD
+                  </Button>
+                </Link>
+              )}
+              {user?.email ? (
+                <Button
+                  sx={{
+                    py: 1,
+                    width: 1,
+                    display: "flex",
+                    justifyContent: "center",
+                    textDecoration: "none",
+                  }}
+                  onClick={logOut}
+                  variant="contained"
+                  color="inherit">
+                  LOGOUT
+                </Button>
+              ) : (
+                <Link
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    textDecoration: "none",
+                  }}
+                  to="/login">
+                  <Button
+                    sx={{ py: 1, width: 1 }}
+                    variant="contained"
+                    color="inherit">
+                    LOGIN
+                  </Button>
+                </Link>
+              )}
             </Box>
           </Drawer>
         </React.Fragment>

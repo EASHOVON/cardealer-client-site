@@ -3,16 +3,16 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { Container } from "@mui/material";
 import Typography from "@mui/material/Typography";
-
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
-
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Explore = () => {
+  const { admin } = useAuth();
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -34,7 +34,7 @@ const Explore = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}>
           {products.map((product) => (
             <Grid key={product._id} item xs={12} sm={6} md={4}>
-              <Card sx={{ minWidth: 275 }}>
+              <Card sx={{ minWidth: 275, height: 1 }}>
                 <CardContent>
                   <CardMedia
                     component="img"
@@ -59,9 +59,13 @@ const Explore = () => {
                     justifyContent: "center",
                     pb: 2,
                   }}>
-                  <Link to={`/purchase/${product._id}`}>
-                    <Button variant="contained">Purchase</Button>
-                  </Link>
+                  {!admin ? (
+                    <Link to={`/purchase/${product._id}`}>
+                      <Button variant="contained">Purchase</Button>
+                    </Link>
+                  ) : (
+                    <Button disabled>Purchase</Button>
+                  )}
                 </CardActions>
               </Card>
             </Grid>

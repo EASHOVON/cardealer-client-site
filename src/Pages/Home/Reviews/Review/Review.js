@@ -50,7 +50,7 @@ const Review = (props) => {
               Review
             </Typography>
             <Typography variant="h6" component="div">
-              Ratings: <ReactStars {...reactStarInfo} />
+              <ReactStars {...reactStarInfo} />
             </Typography>
 
             <Typography sx={{ textAlign: "center" }} variant="body2">

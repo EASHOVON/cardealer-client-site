@@ -89,7 +89,7 @@ const Purchase = () => {
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}>
           <Grid item xs={12} sm={6} md={4}>
-            <Card sx={{ minWidth: 275 }}>
+            <Card sx={{ minWidth: 275, height: 1 }}>
               <CardContent>
                 <CardMedia
                   component="img"
@@ -112,7 +112,7 @@ const Purchase = () => {
           </Grid>
         </Grid>
       </Container>
-      <Container sx={{ textAlign: "center" }}>
+      <Container sx={{ textAlign: "center", mt: 3 }}>
         <form onSubmit={handleOrderSubmit}>
           <TextField
             id="standard-basic"

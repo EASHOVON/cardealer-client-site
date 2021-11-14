@@ -21,22 +21,6 @@ const ManageAllOrders = () => {
   }, [manageAllOrders]);
 
   const handleStatus = (id) => {
-    // const changeOrderStatus = { orderStatus };
-    // fetch(` http://localhost:5000/orders/${id}`, {
-    //   method: "PUT",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(changeOrderStatus),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     if (data) {
-    //       setSuccess(true);
-    //       setOrderStatus("Shipped");
-    //     } else {
-    //       setSuccess(false);
-    //     }
-    //   });
-
     const update = { status: "SHIFT" };
     const url = `http://localhost:5000/orders/${id}`;
     fetch(url, {

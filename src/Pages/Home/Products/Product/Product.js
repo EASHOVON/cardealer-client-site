@@ -9,12 +9,14 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import { Link } from "react-router-dom";
+import useAuth from "../../../../hooks/useAuth";
 
 const Product = (props) => {
+  const { admin } = useAuth();
   const { name, img, desc, price, _id } = props.product;
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ minWidth: 275 }}>
+      <Card sx={{ minWidth: 275, height: 1 }}>
         <CardContent>
           <CardMedia component="img" height="194" image={img} alt="Car" />
           <Typography sx={{ textAlign: "center" }} variant="h5" component="div">
@@ -31,9 +33,13 @@ const Product = (props) => {
             justifyContent: "center",
             pb: 2,
           }}>
-          <Link to={`/purchase/${_id}`}>
-            <Button variant="contained">Purchase</Button>
-          </Link>
+          {!admin ? (
+            <Link to={`/purchase/${_id}`}>
+              <Button variant="contained">Purchase</Button>
+            </Link>
+          ) : (
+            <Button disabled>Purchase</Button>
+          )}
         </CardActions>
       </Card>
     </Grid>

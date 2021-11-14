@@ -72,11 +72,10 @@ const Review = () => {
         flexGrow: 1,
       }}>
       <Typography
-        sx={{ textAlign: "center" }}
-        variant="h5"
-        gutterBottom
+        sx={{ fontWeight: 600, textAlign: "center" }}
+        variant="h4"
         component="div">
-        Please add a positive Feedback
+        Please Add A Positive Feedback
       </Typography>
       <Grid container spacing={2}>
         <Grid
@@ -84,7 +83,7 @@ const Review = () => {
             m: "0 auto",
           }}
           item
-          xs={6}
+          xs={12}
           sm={6}
           md={6}>
           <form onSubmit={handleAdminSubmit}>
@@ -95,7 +94,7 @@ const Review = () => {
               required
               name="imgCar"
               onBlur={handleOnBlur}
-              sx={{ width: 1 }}
+              sx={{ width: 1, m: 1 }}
             />
             <TextField
               id="outlined-basic"
@@ -104,7 +103,7 @@ const Review = () => {
               required
               name="imgCustomer"
               onBlur={handleOnBlur}
-              sx={{ width: 1 }}
+              sx={{ width: 1, m: 1 }}
             />
             <TextField
               id="outlined-basic"
@@ -113,10 +112,30 @@ const Review = () => {
               required
               name="custName"
               onBlur={handleOnBlur}
-              sx={{ width: 1 }}
+              sx={{ width: 1, m: 1 }}
             />
-
-            <ReactStars {...reactStarInfo} />
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}>
+              <Typography
+                sx={{ textAlign: "center" }}
+                variant="button"
+                display="block"
+                gutterBottom>
+                Add A Rating Please
+              </Typography>
+              <Typography
+                sx={{ textAlign: "center" }}
+                variant="button"
+                display="block"
+                gutterBottom>
+                <ReactStars {...reactStarInfo} />
+              </Typography>
+            </Box>
             <TextField
               id="outlined-basic"
               label="Tell Me Your Experience With Us"
@@ -124,7 +143,7 @@ const Review = () => {
               required
               name="custReview"
               onBlur={handleOnBlur}
-              sx={{ width: 1 }}
+              sx={{ width: 1, m: 1 }}
             />
             <Box sx={{ textAlign: "center", mt: 1 }}>
               <Button type="submit" variant="contained">
