@@ -5,12 +5,21 @@ import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { Box } from "@mui/system";
+import ReactStars from "react-rating-stars-component";
 
 const Review = (props) => {
-  const { imgCar, imgCustomer, custName, custReview } = props.review;
+  const { imgCar, imgCustomer, custName, custReview, ratings } = props.review;
+  const reactStarInfo = {
+    value: ratings,
+    edit: false,
+    isHalf: true,
+    emptyIcon: <i className="far fa-star" />,
+    halfIcon: <i className="fa fa-star-half-alt" />,
+    filledIcon: <i className="fa fa-star" />,
+  };
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ minWidth: 275, height: 420 }}>
+      <Card sx={{ minWidth: 275, height: 1 }}>
         <CardContent>
           <CardMedia component="img" height="194" image={imgCar} alt="Car" />
 
@@ -40,6 +49,10 @@ const Review = (props) => {
             <Typography variant="h6" component="div">
               Review
             </Typography>
+            <Typography variant="h6" component="div">
+              Ratings: <ReactStars {...reactStarInfo} />
+            </Typography>
+
             <Typography sx={{ textAlign: "center" }} variant="body2">
               {custReview}
             </Typography>

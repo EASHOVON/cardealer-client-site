@@ -42,7 +42,13 @@ const Review = () => {
     const imgCustomer = reviewData.imgCustomer;
     const custName = reviewData.custName;
     const custReview = reviewData.custReview;
-    const reviewInfo = { imgCar, imgCustomer, custName, custReview };
+    const reviewInfo = {
+      imgCar,
+      imgCustomer,
+      custName,
+      custReview,
+      ratings: star,
+    };
     fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
@@ -52,12 +58,14 @@ const Review = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount) {
+        if (data.insertedId) {
           setSuccess(true);
+          e.target.reset();
         }
       });
     e.preventDefault();
   };
+  console.log(star);
   return (
     <Box
       sx={{
@@ -107,6 +115,7 @@ const Review = () => {
               onBlur={handleOnBlur}
               sx={{ width: 1 }}
             />
+
             <ReactStars {...reactStarInfo} />
             <TextField
               id="outlined-basic"
@@ -119,11 +128,13 @@ const Review = () => {
             />
             <Box sx={{ textAlign: "center", mt: 1 }}>
               <Button type="submit" variant="contained">
-                Make Admin
+                Add Review
               </Button>
             </Box>
           </form>
-          {success && <Alert severity="success">Made Admin Successfully</Alert>}
+          {success && (
+            <Alert severity="success">Review Added Successfully</Alert>
+          )}
         </Grid>
       </Grid>
     </Box>
