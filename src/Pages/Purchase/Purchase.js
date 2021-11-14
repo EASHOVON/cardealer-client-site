@@ -51,7 +51,7 @@ const Purchase = () => {
       customerMobile,
       status: "Pending",
     };
-    fetch("http://localhost:5000/orders", {
+    fetch("https://frozen-retreat-48334.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -64,7 +64,7 @@ const Purchase = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://frozen-retreat-48334.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setDetails(data));
   }, []);

@@ -21,7 +21,7 @@ const AddProduct = () => {
     const img = producstData.img;
     const price = producstData.price;
     const productInfo = { name, desc, img, price };
-    fetch("http://localhost:5000/products", {
+    fetch("https://frozen-retreat-48334.herokuapp.com/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

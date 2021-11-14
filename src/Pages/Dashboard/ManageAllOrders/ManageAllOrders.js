@@ -15,14 +15,14 @@ const ManageAllOrders = () => {
   const [modifyCount, setModifyCount] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://frozen-retreat-48334.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => setManageAllOrders(data));
   }, [manageAllOrders]);
 
   const handleStatus = (id) => {
     const update = { status: "SHIFT" };
-    const url = `http://localhost:5000/orders/${id}`;
+    const url = `https://frozen-retreat-48334.herokuapp.com/orders/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -42,7 +42,7 @@ const ManageAllOrders = () => {
   const handleDelete = (id) => {
     const confirm = window.confirm("Are you sure, you wanna delete this?");
     if (confirm) {
-      const url = `http://localhost:5000/orders/${id}`;
+      const url = `https://frozen-retreat-48334.herokuapp.com/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })

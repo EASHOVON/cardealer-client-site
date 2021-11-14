@@ -14,7 +14,7 @@ import CardContent from "@mui/material/CardContent";
 const ManageProduct = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://frozen-retreat-48334.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -22,7 +22,7 @@ const ManageProduct = () => {
   const handleDelete = (id) => {
     const confirm = window.confirm("Are you sure, you wanna delete this?");
     if (confirm) {
-      const url = `http://localhost:5000/products/${id}`;
+      const url = `https://frozen-retreat-48334.herokuapp.com/products/${id}`;
       fetch(url, {
         method: "DELETE",
       })
