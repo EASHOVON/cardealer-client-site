@@ -43,9 +43,8 @@ const AddProduct = () => {
         flexGrow: 1,
       }}>
       <Typography
-        sx={{ textAlign: "center" }}
-        variant="h5"
-        gutterBottom
+        sx={{ fontWeight: 600, textAlign: "center" }}
+        variant="h4"
         component="div">
         Add A Product
       </Typography>

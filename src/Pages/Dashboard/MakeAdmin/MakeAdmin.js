@@ -35,9 +35,8 @@ const MakeAdmin = () => {
         flexGrow: 1,
       }}>
       <Typography
-        sx={{ textAlign: "center" }}
-        variant="h5"
-        gutterBottom
+        sx={{ fontWeight: 600, textAlign: "center", mb: 1 }}
+        variant="h4"
         component="div">
         Make An Admin
       </Typography>
