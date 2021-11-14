@@ -4,20 +4,19 @@ import useAuth from "../../hooks/useAuth";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { Alert, Container, TextField } from "@mui/material";
+import { Container, TextField } from "@mui/material";
 import Typography from "@mui/material/Typography";
 
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
+
 import CardContent from "@mui/material/CardContent";
-import { Link } from "react-router-dom";
 
 const Purchase = () => {
   const { productId } = useParams();
-  const { user, isLoading, authError } = useAuth();
+  const { user } = useAuth();
   const [details, setDetails] = useState([]);
   const [detail, setDetail] = useState({});
 

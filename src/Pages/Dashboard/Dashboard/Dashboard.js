@@ -21,6 +21,7 @@ import AddProduct from "../AddProduct/AddProduct";
 import ManageProduct from "../ManageProduct/ManageProduct";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
+import UserRoute from "../../Login/UserRoute/UserRoute";
 
 const drawerWidth = 240;
 
@@ -256,15 +257,15 @@ function Dashboard(props) {
           <Route exact path={path}>
             <DashboardHome></DashboardHome>
           </Route>
-          <Route path={`${path}/pay`}>
+          <UserRoute path={`${path}/pay`}>
             <Pay></Pay>
-          </Route>
-          <Route path={`${path}/orders`}>
+          </UserRoute>
+          <UserRoute path={`${path}/orders`}>
             <MyOrders></MyOrders>
-          </Route>
-          <Route path={`${path}/review`}>
+          </UserRoute>
+          <UserRoute path={`${path}/review`}>
             <Review></Review>
-          </Route>
+          </UserRoute>
           <AdminRoute path={`${path}/manageAllOrders`}>
             <ManageAllOrders></ManageAllOrders>
           </AdminRoute>

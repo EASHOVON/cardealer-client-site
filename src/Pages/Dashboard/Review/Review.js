@@ -5,9 +5,31 @@ import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Alert } from "@mui/material";
+import "./Review.css";
+import ReactStars from "react-rating-stars-component";
+
 const Review = () => {
   const [reviewData, setReviewData] = useState({});
   const [success, setSuccess] = useState(false);
+  const [star, setStar] = useState(4.5);
+
+  // Rating
+  const reactStarInfo = {
+    size: 20,
+    count: 5,
+    color: "black",
+    activeColor: "#ffd700",
+    value: star,
+    a11y: true,
+    isHalf: true,
+    emptyIcon: <i className="far fa-star" />,
+    halfIcon: <i className="fa fa-star-half-alt" />,
+    filledIcon: <i className="fa fa-star" />,
+    onChange: (newValue) => {
+      setStar(newValue);
+    },
+  };
+
   const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -85,6 +107,7 @@ const Review = () => {
               onBlur={handleOnBlur}
               sx={{ width: 1 }}
             />
+            <ReactStars {...reactStarInfo} />
             <TextField
               id="outlined-basic"
               label="Tell Me Your Experience With Us"

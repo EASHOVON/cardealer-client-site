@@ -1,13 +1,9 @@
 import React from "react";
-
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-
 import Card from "@mui/material/Card";
-
 import CardContent from "@mui/material/CardContent";
-
 import { Box } from "@mui/system";
 
 const Review = (props) => {

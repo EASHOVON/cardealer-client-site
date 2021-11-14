@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
 import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
-import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
 import Explore from "./Pages/Explore/Explore";
 import Footer from "./Pages/Home/Footer/Footer";
 import Home from "./Pages/Home/Home/Home";

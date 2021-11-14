@@ -13,8 +13,7 @@ import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
-  const { user, isLoading, registerUser, loginUser, logOut, authError } =
-    useAuth();
+  const { user, isLoading, loginUser, authError } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const handleOnchange = (e) => {
