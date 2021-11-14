@@ -49,6 +49,7 @@ const Purchase = () => {
       customerEmail,
       customerAddress,
       customerMobile,
+      status: "Pending",
     };
     fetch("http://localhost:5000/orders", {
       method: "POST",

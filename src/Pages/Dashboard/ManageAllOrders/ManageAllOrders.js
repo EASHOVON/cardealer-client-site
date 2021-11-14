@@ -12,11 +12,48 @@ import CardContent from "@mui/material/CardContent";
 
 const ManageAllOrders = () => {
   const [manageAllOrders, setManageAllOrders] = useState([]);
+  const [modifyCount, setModifyCount] = useState(0);
+
   useEffect(() => {
     fetch("http://localhost:5000/orders")
       .then((res) => res.json())
       .then((data) => setManageAllOrders(data));
-  }, []);
+  }, [manageAllOrders]);
+
+  const handleStatus = (id) => {
+    // const changeOrderStatus = { orderStatus };
+    // fetch(` http://localhost:5000/orders/${id}`, {
+    //   method: "PUT",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(changeOrderStatus),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     if (data) {
+    //       setSuccess(true);
+    //       setOrderStatus("Shipped");
+    //     } else {
+    //       setSuccess(false);
+    //     }
+    //   });
+
+    const update = { status: "SHIFT" };
+    const url = `http://localhost:5000/orders/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(update),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          alert("Update Successful");
+          setModifyCount(modifyCount + 1);
+        }
+      });
+  };
 
   const handleDelete = (id) => {
     const confirm = window.confirm("Are you sure, you wanna delete this?");
@@ -82,6 +119,12 @@ const ManageAllOrders = () => {
                     onClick={() => handleDelete(manageAllOrder._id)}
                     variant="contained">
                     Delete
+                  </Button>
+
+                  <Button
+                    onClick={() => handleStatus(manageAllOrder._id)}
+                    variant="contained">
+                    {manageAllOrder?.status}
                   </Button>
                 </CardActions>
               </Card>
