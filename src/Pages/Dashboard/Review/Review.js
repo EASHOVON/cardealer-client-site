@@ -93,7 +93,7 @@ const Review = () => {
               variant="outlined"
               required
               name="imgCar"
-              onBlur={handleOnBlur}
+              onChange={handleOnBlur}
               sx={{ width: 1, m: 1 }}
             />
             <TextField
@@ -102,7 +102,7 @@ const Review = () => {
               variant="outlined"
               required
               name="imgCustomer"
-              onBlur={handleOnBlur}
+              onChange={handleOnBlur}
               sx={{ width: 1, m: 1 }}
             />
             <TextField
@@ -111,7 +111,7 @@ const Review = () => {
               variant="outlined"
               required
               name="custName"
-              onBlur={handleOnBlur}
+              onChange={handleOnBlur}
               sx={{ width: 1, m: 1 }}
             />
             <Box
@@ -142,7 +142,7 @@ const Review = () => {
               variant="outlined"
               required
               name="custReview"
-              onBlur={handleOnBlur}
+              onChange={handleOnBlur}
               sx={{ width: 1, m: 1 }}
             />
             <Box sx={{ textAlign: "center", mt: 1 }}>
