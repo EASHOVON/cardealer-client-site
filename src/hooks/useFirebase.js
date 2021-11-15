@@ -21,10 +21,10 @@ const useFirebase = () => {
 
   // User Register
   const registerUser = (email, password, name, history) => {
+    setAuthError("");
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setAuthError("");
         const newUser = { email, displayName: name };
         setUser(newUser);
         // Save User to the Database
@@ -45,12 +45,12 @@ const useFirebase = () => {
 
   // Login User
   const loginUser = (email, password, location, history) => {
+    setAuthError("");
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const destination = location?.state?.from || "/";
         history.replace(destination);
-        setAuthError("");
       })
       .catch((error) => {
         setAuthError(error.message);
