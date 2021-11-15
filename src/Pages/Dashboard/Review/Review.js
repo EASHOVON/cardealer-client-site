@@ -65,7 +65,7 @@ const Review = () => {
       });
     e.preventDefault();
   };
-  console.log(star);
+
   return (
     <Box
       sx={{

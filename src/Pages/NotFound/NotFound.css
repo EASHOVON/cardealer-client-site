@@ -1,0 +1,11 @@
+.notFound-img {
+  position: relative;
+}
+
+.notfound-btn {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+
+  margin-left: -100px;
+}

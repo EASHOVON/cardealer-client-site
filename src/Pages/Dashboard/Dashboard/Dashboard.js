@@ -61,7 +61,7 @@ function Dashboard(props) {
           justifyContent: "center",
           textDecoration: "none",
         }}
-        to={`${url}`}>
+        to={`${url}/`}>
         <Button sx={{ py: 1, width: 1 }} variant="contained" color="inherit">
           Dashboard
         </Button>
