@@ -7,9 +7,11 @@ import Button from "@mui/material/Button";
 import { Alert } from "@mui/material";
 import "./Review.css";
 import ReactStars from "react-rating-stars-component";
+import useAuth from "../../../hooks/useAuth";
 
 const Review = () => {
   const [reviewData, setReviewData] = useState({});
+  const { user } = useAuth();
   const [success, setSuccess] = useState(false);
   const [star, setStar] = useState(4.5);
 
@@ -40,7 +42,7 @@ const Review = () => {
   const handleAdminSubmit = (e) => {
     const imgCar = reviewData.imgCar;
     const imgCustomer = reviewData.imgCustomer;
-    const custName = reviewData.custName;
+    const custName = user?.displayName;
     const custReview = reviewData.custReview;
     const reviewInfo = {
       imgCar,
@@ -110,7 +112,7 @@ const Review = () => {
               label="Put Your Name"
               variant="outlined"
               required
-              name="custName"
+              value={user?.displayName}
               onChange={handleOnBlur}
               sx={{ width: 1, m: 1 }}
             />
