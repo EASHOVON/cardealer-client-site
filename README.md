@@ -6,8 +6,8 @@ Our website is a car buying related web site. Here a normal user can buy a car b
 # Live Site Link: https://cardealer-58ff1.web.app/
 
 
-* Very Well Designed Website that catch client eyes.
-* Here is Top Six Car for our user. They can buy them easily.
-* After Click purchase button it will redirect you to purchase page.
-* After purchase it will show the my order section.
-* And Then user can manage him/her order make changing.
+* A responsive, fully-functional car dealer niche website. 
+* Allowing customers to create an account, browse products, buy products & write reviews.
+* Admins can add new products, remove existing products, remove user products, update shipping status, and create new admin accounts.
+* Reviews are dynamic.
+* Technology Used: React, Bootstrap, Material UI, React-Router, Firebase, Node.js, Express.js, MongoDB, Heroku
