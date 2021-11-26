@@ -1,9 +1,7 @@
 
-# Car Dealer Website
+# Car Dealer - Best Car Dealing Website
 
-Our website is a car buying related web site. Here a normal user can buy a car by logging in.
-
-# Live Site Link: https://cardealer-58ff1.web.app/
+## Live Site Link: https://cardealer-58ff1.web.app/
 
 
 * A responsive, fully-functional car dealer niche website. 
