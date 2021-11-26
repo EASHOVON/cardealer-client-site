@@ -3,8 +3,7 @@
 
 Our website is a car buying related web site. Here a normal user can buy a car by logging in.
 
-# Live Site Link: 
-https://cardealer-58ff1.web.app/
+# Live Site Link: https://cardealer-58ff1.web.app/
 
 
 * Very Well Designed Website that catch client eyes.
