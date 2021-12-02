@@ -1,7 +1,5 @@
 # Car Dealer Website
 
-=======
-
 # Car Dealer - Best Car Dealing Website
 
 ## Live Site Link: https://cardealer-58ff1.web.app/
