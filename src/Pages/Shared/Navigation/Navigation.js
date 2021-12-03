@@ -68,7 +68,7 @@ export default function Navigation() {
               sx={{ flexGrow: 1 }}>
               <Link to="/">
                 <img
-                  src="https://q4p3y7t4.rocketcdn.me/elementor/wp-content/uploads/sites/3/2021/08/logo.png"
+                  src="https://i.ibb.co/58bKCgm/logo-For-Car-Dealer.png"
                   alt=""
                 />
               </Link>
